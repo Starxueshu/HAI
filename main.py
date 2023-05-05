@@ -30,7 +30,7 @@ Dementia = st.sidebar.selectbox("Dementia", ("No", "Yes"))
 Cancer = st.sidebar.selectbox("Cancer", ("No", "Yes"))
 
 if st.button("Submit"):
-    rf_clf = jl.load("Xgbc_clf_final_round-web.pkl")
+    rf_clf = jl.load("Xgbc_clf_final_round.pkl")
     x = pd.DataFrame([[Age, Sex, Fracture, Operation, Comorbidities, Anemia, Hypertension, Coronarydisease, Cerebrovasculardisease, Heartfailure, Atherosclerosis, Renalfailure, Nephroticsyndrome, Respiratorysystemdisease, Gastrointestinalbleeding, Liverfailure, Cirrhosis, Diabetes, Dementia, Cancer]],
                      columns=["Age", "Sex", "Fracture", "Operation", "Comorbidities", "Anemia", "Hypertension", "Coronarydisease", "Cerebrovasculardisease", "Heartfailure", "Atherosclerosis", "Renalfailure", "Nephroticsyndrome", "Respiratorysystemdisease", "Gastrointestinalbleeding", "Liverfailure", "Cirrhosis", "Diabetes", "Dementia", "Cancer"])
     x = x.replace(["Male", "Female"], [1, 2])
