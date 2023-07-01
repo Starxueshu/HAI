@@ -30,7 +30,7 @@ Dementia = st.sidebar.selectbox("Dementia", ("No", "Yes"))
 Cancer = st.sidebar.selectbox("Cancer", ("No", "Yes"))
 
 if st.button("Submit"):
-    rf_clf = jl.load("Xgbc_clf_final_round-web.pkl")
+    rf_clf = jl.load("Xgbc_clf_final_round.pkl")
     x = pd.DataFrame([[Age, Sex, Fracture, Operation, Comorbidities, Anemia, Hypertension, Coronarydisease, Cerebrovasculardisease, Heartfailure, Atherosclerosis, Renalfailure, Nephroticsyndrome, Respiratorysystemdisease, Gastrointestinalbleeding, Liverfailure, Cirrhosis, Diabetes, Dementia, Cancer]],
                      columns=["Age", "Sex", "Fracture", "Operation", "Comorbidities", "Anemia", "Hypertension", "Coronarydisease", "Cerebrovasculardisease", "Heartfailure", "Atherosclerosis", "Renalfailure", "Nephroticsyndrome", "Respiratorysystemdisease", "Gastrointestinalbleeding", "Liverfailure", "Cirrhosis", "Diabetes", "Dementia", "Cancer"])
     x = x.replace(["Male", "Female"], [1, 2])
@@ -55,4 +55,4 @@ if st.button("Submit"):
         st.markdown(f"Recommendations: Patients in the high-risk groups were 4.56-fold chances to suffer from hospital-acquired infection than patients in the low-risk groups (P<0.001). More attentions should be paid to those patients, and prophylactic antibiotic was recommened.")
 
 st.subheader('About the model')
-st.markdown('This online calculator is freely accessible, and it’s algorithm was based on the XGBoosting machine learning model. The area under the curve of the model was 0.817 (95%CI: 0.778-0.853).')
+st.markdown('This online calculator is freely accessible.')
