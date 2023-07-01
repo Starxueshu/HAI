@@ -4,7 +4,7 @@ import joblib as jl
 import pandas as pd
 import streamlit as st
 
-st.header("Development and validation of an interpretable machine learning model for estimating hospital-acquired infection among hip fracture patients undergoing surgery: a large population-based cohort study")
+st.header("Development and validation of a web-based interpretable machine learning application for estimating hospital-acquired infection among elderly hip fracture patients: a nationwide observational cohort study")
 st.sidebar.title("Parameters Selection Panel")
 st.sidebar.markdown("Picking up parameters")
 
@@ -45,11 +45,11 @@ if st.button("Submit"):
     prediction = rf_clf.predict_proba(x)[0, 1]
         # Output prediction
     st.text(f"Probability of hospital-acquired infection: {'{:.2%}'.format(round(prediction, 5))}")
-    if prediction < 0.023:
+    if prediction < 0.526:
         st.text(f"Risk group: low-risk group")
     else:
         st.text(f"Risk group: High-risk group")
-    if prediction < 0.023:
+    if prediction < 0.526:
         st.markdown(f"Recommendations: For patients in the low-risk groups, common healthcare was recommended.")
     else:
         st.markdown(f"Recommendations: Patients in the high-risk groups were 4.56-fold chances to suffer from hospital-acquired infection than patients in the low-risk groups (P<0.001). More attentions should be paid to those patients, and prophylactic antibiotic was recommened.")
