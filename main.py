@@ -4,7 +4,7 @@ import joblib as jl
 import pandas as pd
 import streamlit as st
 
-st.header("Development and validation of a web-based interpretable machine learning application for estimating hospital-acquired infection among elderly hip fracture patients: a nationwide observational cohort study")
+st.header("An interactive artificial intelligence tool to stratify the risk of hospital-acquired infection in geriatric hip fracture: a national cohort study")
 st.sidebar.title("Parameters Selection Panel")
 st.sidebar.markdown("Picking up parameters")
 
