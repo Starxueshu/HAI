@@ -44,11 +44,11 @@ if st.button("Submit"):
     # Get prediction
     prediction = rf_clf.predict_proba(x)[0, 1]
         # Output prediction
-    st.text(f"Probability of hospital-acquired infection: {'{:.2%}'.format(round(prediction, 5))}")
+    st.text(f"Risk of HAI: {'{:.2%}'.format(round(prediction, 5))}")
     if prediction < 0.526:
-        st.text(f"Risk group: low-risk group")
+        st.success(f"Risk group: low-risk group")
     else:
-        st.text(f"Risk group: High-risk group")
+        st.error(f"Risk group: High-risk group")
     if prediction < 0.526:
         st.markdown(f"For high-risk patients with elderly hip fractures, it is crucial to implement comprehensive hospital management measures to minimize the risk of hospital-acquired infections (HAIs). The following strategies should be considered: (1) Strict surgical protocols: Adhering to strict surgical protocols, including proper hand hygiene, aseptic techniques, and sterile equipment, can significantly reduce the risk of HAIs. Surgeons should follow infection control guidelines and ensure a clean surgical environment. (2) Prophylactic antibiotic use: Administering prophylactic antibiotics before surgery can help prevent surgical site infections. The choice of antibiotics should be based on local antimicrobial resistance patterns and guidelines to ensure optimal effectiveness. (3) Patient factors: High-risk patients should be carefully assessed for comorbidities and underlying medical conditions that may increase their susceptibility to infections.")
     else:
